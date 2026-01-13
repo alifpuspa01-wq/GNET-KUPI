@@ -1,0 +1,41 @@
+.order {
+  min-height: 100vh;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-form {
+  background: #1b1b1b;
+  padding: 30px;
+  border-radius: 20px;
+  width: 320px;
+}
+
+.order-form label {
+  margin-top: 12px;
+  display: block;
+  font-size: 14px;
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+.order-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: #c7a17a;
+  font-weight: bold;
+  cursor: pointer;
+}

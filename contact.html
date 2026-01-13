@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | GNET KUPI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#1b1b1b] text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-50 bg-black/60 backdrop-blur-md px-10 py-6 flex justify-between items-center">
+    <h1 class="text-2xl text-amber-400 font-bold tracking-widest">GNET KUPI</h1>
+    <div class="space-x-6 text-sm uppercase tracking-wide">
+      <a href="home.html" class="hover:text-amber-400">Home</a>
+      <a href="menu.html" class="hover:text-amber-400">Menu</a>
+      <a href="about.html" class="hover:text-amber-400">About</a>
+      <a href="gallery.html" class="hover:text-amber-400">Galeri</a>
+      <a href="barista.html" class="hover:text-amber-400">Barista</a>
+      <a href="promo.html" class="hover:text-amber-400">Promo</a>
+      <a href="event.html" class="hover:text-amber-400">Event</a>
+      <a href="contact.html" class="text-amber-400">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="pt-32 pb-20 text-center px-6">
+    <h1 class="text-4xl md:text-5xl font-bold text-amber-400 tracking-wider mb-4">
+      Get In Touch
+    </h1>
+    <p class="text-gray-400 max-w-xl mx-auto">
+      Hubungi kami untuk reservasi, event, atau sekadar ngopi bareng ☕
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-12">
+
+    <!-- INFO -->
+    <div class="space-y-6">
+      <div class="bg-[#1f1f1f] p-6 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-2">📍 Alamat</h3>
+        <p class="text-gray-400 text-sm">
+          Jl. Abadi Desa Kartiasa No 057, Sambas, Kalimantan Barat
+        </p>
+      </div>
+
+      <div class="bg-[#1f1f1f] p-6 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-2">📞 WhatsApp</h3>
+        <p class="text-gray-400 text-sm">
+          +62 853 9196 2071
+        </p>
+      </div>
+
+      <div class="bg-[#1f1f1f] p-6 rounded-2xl">
+        <h3 class="text-xl font-semibold mb-2">📧 Email</h3>
+        <p class="text-gray-400 text-sm">
+          gnetkupi@gmail.com
+        </p>
+      </div>
+
+      <!-- MAP -->
+      <div class="rounded-2xl overflow-hidden border border-white/10">
+        <iframe 
+          class="w-full h-64"
+          src="https://www.google.com/maps?q=sambas&output=embed"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="bg-[#1f1f1f] p-8 rounded-2xl shadow-lg">
+      <h3 class="text-2xl font-semibold mb-6 text-amber-400">Send Message</h3>
+
+     <form class="space-y-4" onsubmit="kirimWA(); return false;">
+
+  <input id="nama" type="text" placeholder="Nama"
+    required
+    class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400">
+
+  <input id="wa" type="number" placeholder="Nomor WhatsApp"
+    required
+    class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400">
+
+  <textarea id="pesan" rows="4" placeholder="Pesan"
+    required
+    class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400"></textarea>
+
+  <button type="submit"
+    class="w-full bg-amber-400 text-black py-3 rounded-full font-semibold hover:bg-amber-300 transition">
+    Kirim via WhatsApp
+  </button>
+
+</form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-6 text-center text-gray-500 text-sm">
+    © 2026 GNET KUPI — Brewed with Passion ☕
+  </footer>
+  <script>
+function kirimWA() {
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const pesan = document.getElementById("pesan").value;
+
+  const teks =
+    `Halo GNET KUPI ☕%0A%0A` +
+    `Nama: ${nama}%0A` +
+    `No WA: ${wa}%0A` +
+    `Pesan:%0A${pesan}`;
+
+  const nomorAdmin = "6285391962071"; // GANTI jika perlu
+  window.open(`https://wa.me/${nomorAdmin}?text=${teks}`, "_blank");
+}
+</script>
+
+
+</body>
+</html>

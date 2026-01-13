@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Join Event | GNET KUPI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#1b1b1b] text-white">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between p-6 bg-black sticky top-0 z-50">
+  <h1 class="text-2xl text-amber-400 font-bold tracking-widest">GNET KUPI</h1>
+  <div class="space-x-4 text-sm">
+    <a href="home.html" class="hover:text-amber-400">Home</a>
+    <a href="menu.html" class="hover:text-amber-400">Menu</a>
+    <a href="event.html" class="hover:text-amber-400">Event</a>
+    <a href="contact.html" class="hover:text-amber-400">Contact</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="text-center py-20 px-6">
+  <h1 class="text-4xl md:text-5xl font-bold text-amber-400 mb-4">
+    Join Our Event
+  </h1>
+  <p class="text-gray-400 max-w-xl mx-auto">
+    Daftarkan dirimu dan jadilah bagian dari event seru GNET KUPI ☕🎶
+  </p>
+</section>
+
+<!-- CONTENT -->
+<section class="max-w-5xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-12">
+
+  <!-- EVENT INFO -->
+  <div class="bg-[#1f1f1f] p-8 rounded-2xl space-y-4">
+    <h2 class="text-2xl font-semibold text-amber-400">🎶 Live Acoustic Night</h2>
+    <p class="text-gray-400 text-sm">
+      Nikmati malam santai dengan alunan musik akustik, kopi hangat,
+      dan suasana nyaman khas GNET KUPI.
+    </p>
+
+    <ul class="text-sm text-gray-300 space-y-2 mt-4">
+      <li>📅 Tanggal : Jumat, 20 Januari 2026</li>
+      <li>⏰ Waktu : 19.00 WIB</li>
+      <li>📍 Lokasi : GNET KUPI, Sambas</li>
+      <li>🎟️ HTM : Gratis</li>
+    </ul>
+
+    <div class="mt-6 p-4 bg-black/40 rounded-xl text-sm text-gray-400">
+      Kuota terbatas, segera daftar sebelum penuh!
+    </div>
+  </div>
+
+  <!-- FORM JOIN -->
+  <div class="bg-[#1f1f1f] p-8 rounded-2xl shadow-lg">
+    <h2 class="text-2xl font-semibold mb-6 text-amber-400">
+      Form Pendaftaran
+    </h2>
+
+    <form onsubmit="joinEvent(); return false;" class="space-y-4">
+      <input id="nama" type="text" placeholder="Nama Lengkap" required
+        class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400">
+
+      <input id="wa" type="number" placeholder="Nomor WhatsApp" required
+        class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400">
+
+      <select id="event"
+        class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400">
+        <option>Live Acoustic Night</option>
+        <option>Coffee Brewing Class</option>
+      </select>
+
+      <textarea id="catatan" rows="3" placeholder="Catatan (opsional)"
+        class="w-full p-3 rounded-lg bg-[#2a2a2a] border border-white/10 focus:outline-none focus:border-amber-400"></textarea>
+
+      <button type="submit"
+        class="w-full bg-amber-400 text-black py-3 rounded-full font-semibold hover:bg-amber-300 transition">
+        Join via WhatsApp
+      </button>
+    </form>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black py-6 text-center text-gray-500 text-sm">
+  © 2026 GNET KUPI — Coffee & Community ☕
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function joinEvent() {
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const event = document.getElementById("event").value;
+  const catatan = document.getElementById("catatan").value;
+
+  const pesan =
+    `Halo GNET KUPI ☕%0A%0A` +
+    `Saya ingin JOIN EVENT%0A` +
+    `Nama: ${nama}%0A` +
+    `No WA: ${wa}%0A` +
+    `Event: ${event}%0A` +
+    `Catatan: ${catatan}`;
+
+  const nomorAdmin = "6285391962071"; // ganti jika perlu
+  window.open(`https://wa.me/${nomorAdmin}?text=${pesan}`, "_blank");
+}
+</script>
+
+</body>
+</html>

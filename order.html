@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Order | GNET KUPI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#1b1b1b] text-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-50 bg-black/60 backdrop-blur-md px-10 py-6 flex justify-between items-center">
+    <h1 class="text-2xl text-amber-400 font-bold tracking-widest">GNET KUPI</h1>
+    <div class="space-x-6 text-sm uppercase tracking-wide">
+      <a href="home.html" class="hover:text-amber-400">Home</a>
+      <a href="menu.html" class="hover:text-amber-400">Menu</a>
+      <a href="about.html" class="hover:text-amber-400">About</a>
+      <a href="gallery.html" class="hover:text-amber-400">Galeri</a>
+      <a href="barista.html" class="hover:text-amber-400">Barista</a>
+      <a href="promo.html" class="hover:text-amber-400">Promo</a>
+      <a href="event.html" class="hover:text-amber-400">Event</a>
+      <a href="contact.html" class="hover:text-amber-400">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ORDER SECTION -->
+  <section class="min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
+    <div class="bg-[#1f1f1f] w-full max-w-lg rounded-2xl shadow-xl p-8">
+
+      <h2 class="text-3xl font-bold text-amber-400 text-center mb-2">
+        Order Coffee
+      </h2>
+      <p class="text-gray-400 text-center mb-8">
+        Pesan kopi favoritmu dengan mudah ☕
+      </p>
+
+      <form onsubmit="sendWhatsApp(); return false;" class="space-y-5">
+
+        <div>
+          <label class="text-sm text-gray-400">Menu</label>
+          <input type="text" id="menu" readonly
+                 class="w-full mt-1 bg-black/40 border border-gray-700 rounded-lg px-4 py-2">
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-400">Harga</label>
+          <input type="text" id="harga" readonly
+                 class="w-full mt-1 bg-black/40 border border-gray-700 rounded-lg px-4 py-2">
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-400">Nama</label>
+          <input type="text" id="nama" placeholder="Nama Anda" required
+                 class="w-full mt-1 bg-black/40 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-400">Jumlah</label>
+          <input type="number" id="jumlah" value="1" min="1" required
+                 oninput="updateTotal()"
+                 class="w-full mt-1 bg-black/40 border border-gray-700 rounded-lg px-4 py-2">
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-400">Catatan</label>
+          <textarea id="catatan" placeholder="Gula, es, dll..."
+                    class="w-full mt-1 bg-black/40 border border-gray-700 rounded-lg px-4 py-2"></textarea>
+        </div>
+
+        <div class="flex justify-between items-center pt-4">
+          <span class="text-lg font-semibold text-amber-400">
+            Total: <span id="total">Rp 0</span>
+          </span>
+          <button type="submit"
+                  class="bg-amber-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-amber-300 transition">
+            Order via WhatsApp
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black py-6 text-center text-gray-500 text-sm">
+    © 2026 GNET KUPI — Order with Ease ☕
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const menu = params.get("menu");
+    const harga = params.get("harga");
+
+    document.getElementById("menu").value = menu;
+    document.getElementById("harga").value = "Rp " + harga;
+
+    function updateTotal() {
+      const jumlah = document.getElementById("jumlah").value;
+      document.getElementById("total").innerText =
+        "Rp " + (jumlah * harga);
+    }
+    updateTotal();
+
+    function sendWhatsApp() {
+      const nama = document.getElementById("nama").value;
+      const jumlah = document.getElementById("jumlah").value;
+      const catatan = document.getElementById("catatan").value;
+
+      const pesan =
+        `Halo GNET KUPI ☕%0A%0A` +
+        `Nama: ${nama}%0A` +
+        `Menu: ${menu}%0A` +
+        `Harga: Rp ${harga}%0A` +
+        `Jumlah: ${jumlah}%0A` +
+        `Total: Rp ${jumlah * harga}%0A` +
+        `Catatan: ${catatan}`;
+
+      const nomorWA = "+6285391962071"; // GANTI jika perlu
+      window.open(`https://wa.me/+6285391962071?text=${pesan}`, "_blank");
+    }
+  </script>
+
+</body>
+</html>
